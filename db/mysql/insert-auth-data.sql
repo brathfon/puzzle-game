@@ -22,9 +22,3 @@ INSERT INTO roles (abrv, long_name) VALUES ( 'RO', 'Read Only');   -- in case we
 INSERT INTO user_roles (user_id, role_id) VALUES ( 1, 1);  -- initial root user who has admin privileges
 INSERT INTO user_roles (user_id, role_id) VALUES ( 1, 2);  -- this value is more for testing, giving root DE privs
 INSERT INTO user_roles (user_id, role_id) VALUES ( 2, 5);  -- guest, read only`
-
-
-INSERT INTO example_data(col_1, the_date, the_time, comments)
-VALUES (2000, "2018-06-25", "10:20", "this is some example data");
-INSERT INTO example_data(col_1, the_date, the_time, comments)
-VALUES (1000, "1954-10-04", "07:10", "somebodies birthday");
