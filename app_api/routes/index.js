@@ -6,13 +6,18 @@ var auth = jwt({
   userProperty: 'payload'
 });
 
-var ctrlExample = require('../controllers/exampleData');
+//var ctrlExample = require('../controllers/exampleData');
+var ctrlPuzzleGame = require('../controllers/puzzleGame');
 var ctrlAuth = require('../controllers/authentication');
 var logging = require('../controllers/logging');
 var lookup = require('../controllers/lookupInformation');
 
 /* water quality apis */
-router.get('/getExampleData',                                                    ctrlExample.getExampleData);
+router.get('/getPuzzlePieces', ctrlPuzzleGame.getPuzzlePieces);
+router.get('/getPuzzlePiece/:puzzle_piece_id', ctrlPuzzleGame.getPuzzlePiece);
+router.put('/updatePuzzlePiece', ctrlPuzzleGame.updatePuzzlePiece);
+
+
 /*
 router.get('/getLabSessionsOverview', ctrlWQ.getLabSessionsOverview);
 router.get('/getSamplesForSession/:lab_id/:session_number',                         ctrlWQ.getSamplesForSession);

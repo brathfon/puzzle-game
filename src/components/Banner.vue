@@ -2,7 +2,7 @@
   <div class="navbar navbar-inverse navbar-fixed-top">
    <div class="container">
      <div class="navbar-header">
-       <a href="/" class="navbar-brand">Vue Template</a>
+       <a href="/" class="navbar-brand">Tamara Paltin</a>
      </div>
      <div id="navbar-main" class="navbar-collapse collapse">
        <ul class="nav navbar-nav">

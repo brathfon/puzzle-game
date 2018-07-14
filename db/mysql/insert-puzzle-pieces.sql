@@ -1,3 +1,38 @@
+-- do some large ones first
+INSERT INTO puzzle_pieces (price) VALUES (2000);
+INSERT INTO puzzle_pieces (price) VALUES (2000);
+INSERT INTO puzzle_pieces (price) VALUES (2000);
+INSERT INTO puzzle_pieces (price) VALUES (2000);
+INSERT INTO puzzle_pieces (price) VALUES (2000);
+INSERT INTO puzzle_pieces (price) VALUES (2000);
+INSERT INTO puzzle_pieces (price) VALUES (2000);
+INSERT INTO puzzle_pieces (price) VALUES (2000);
+INSERT INTO puzzle_pieces (price) VALUES (2000);
+INSERT INTO puzzle_pieces (price) VALUES (2000);
+
+INSERT INTO puzzle_pieces (price) VALUES (1000);
+INSERT INTO puzzle_pieces (price) VALUES (1000);
+INSERT INTO puzzle_pieces (price) VALUES (1000);
+INSERT INTO puzzle_pieces (price) VALUES (1000);
+INSERT INTO puzzle_pieces (price) VALUES (1000);
+INSERT INTO puzzle_pieces (price) VALUES (1000);
+INSERT INTO puzzle_pieces (price) VALUES (1000);
+INSERT INTO puzzle_pieces (price) VALUES (1000);
+INSERT INTO puzzle_pieces (price) VALUES (1000);
+INSERT INTO puzzle_pieces (price) VALUES (1000);
+
+INSERT INTO puzzle_pieces (price) VALUES (500);
+INSERT INTO puzzle_pieces (price) VALUES (500);
+INSERT INTO puzzle_pieces (price) VALUES (500);
+INSERT INTO puzzle_pieces (price) VALUES (500);
+INSERT INTO puzzle_pieces (price) VALUES (500);
+INSERT INTO puzzle_pieces (price) VALUES (500);
+INSERT INTO puzzle_pieces (price) VALUES (500);
+INSERT INTO puzzle_pieces (price) VALUES (500);
+INSERT INTO puzzle_pieces (price) VALUES (500);
+INSERT INTO puzzle_pieces (price) VALUES (500);
+
+INSERT INTO puzzle_pieces (price) VALUES (300);
 INSERT INTO puzzle_pieces (price) VALUES (299);
 INSERT INTO puzzle_pieces (price) VALUES (298);
 INSERT INTO puzzle_pieces (price) VALUES (297);
@@ -297,4 +332,3 @@ INSERT INTO puzzle_pieces (price) VALUES (4);
 INSERT INTO puzzle_pieces (price) VALUES (3);
 INSERT INTO puzzle_pieces (price) VALUES (2);
 INSERT INTO puzzle_pieces (price) VALUES (1);
-INSERT INTO puzzle_pieces (price) VALUES (0);
