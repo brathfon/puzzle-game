@@ -65,13 +65,17 @@ var checkForNull = function (value){
 
 module.exports.updatePuzzlePiece = function (req, res) {
 
-  if (!req.body.puzzle_piece_id )         { helpers.sendJsonResponse(res, 400, {"message": "updatePuzzlePiece(): puzzle_piece_id param not passed"}); return;};
-  if (!req.body.is_available )            { helpers.sendJsonResponse(res, 400, {"message": "updatePuzzlePiece(): is_available param not passed"}); return;};
-  if (!req.body.employer_and_occupation ) { helpers.sendJsonResponse(res, 400, {"message": "updatePuzzlePiece(): employer_and_occupation param not passed"}); return;};
-  if (!req.body.paypal_payment_id )       { helpers.sendJsonResponse(res, 400, {"message": "updatePuzzlePiece(): paypal_payment_id param not passed"}); return;};
-  if (!req.body.first_name )              { helpers.sendJsonResponse(res, 400, {"message": "updatePuzzlePiece(): first_name param not passed"}); return;};
-  if (!req.body.last_name )               { helpers.sendJsonResponse(res, 400, {"message": "updatePuzzlePiece(): last_name param not passed"}); return;};
-  if (!req.body.comments )                { helpers.sendJsonResponse(res, 400, {"message": "updatePuzzlePiece(): comments param not passed"}); return;};
+  console.log(chalk.green("updatePuzzlePiece req.body : " + util.inspect(req.body, false, null)));
+
+  // this needs to be fixed to test for null and undefined and null or something like that
+
+  if (!req.body.puzzle_piece_id === null)         { helpers.sendJsonResponse(res, 400, {"message": "updatePuzzlePiece(): puzzle_piece_id param not passed"}); return;};
+  if (req.body.is_available  === null)            { helpers.sendJsonResponse(res, 400, {"message": "updatePuzzlePiece(): is_available param not passed"}); return;};
+  if (!req.body.employer_and_occupation === null) { helpers.sendJsonResponse(res, 400, {"message": "updatePuzzlePiece(): employer_and_occupation param not passed"}); return;};
+  if (!req.body.paypal_payment_id === null)       { helpers.sendJsonResponse(res, 400, {"message": "updatePuzzlePiece(): paypal_payment_id param not passed"}); return;};
+  if (!req.body.first_name === null)              { helpers.sendJsonResponse(res, 400, {"message": "updatePuzzlePiece(): first_name param not passed"}); return;};
+  if (!req.body.last_name === null)               { helpers.sendJsonResponse(res, 400, {"message": "updatePuzzlePiece(): last_name param not passed"}); return;};
+  if (!req.body.comments === null)                { helpers.sendJsonResponse(res, 400, {"message": "updatePuzzlePiece(): comments param not passed"}); return;};
 
   let procArgs = [
     checkForNull( req.body.puzzle_piece_id ),
@@ -80,7 +84,7 @@ module.exports.updatePuzzlePiece = function (req, res) {
     checkForNull( req.body.paypal_payment_id ),
     checkForNull( req.body.first_name ),
     checkForNull( req.body.last_name ),
-    checkForNull( req.body.comments )    
+    checkForNull( req.body.comments )
   ];
 
 
