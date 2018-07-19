@@ -63,19 +63,31 @@ var checkForNull = function (value){
   return (value === '' ? null : value);
 };
 
+var checkReqBody = function (req, res, attr) {
+
+  var returnValue = true;
+  if (req.body[attr] === undefined) {
+    helpers.sendJsonResponse(res, 400, {"message": "updatePuzzlePiece(): " + attr + " param not passed"});
+    returnValue = false;
+  }
+  return returnValue;
+
+}
+
 module.exports.updatePuzzlePiece = function (req, res) {
 
   console.log(chalk.green("updatePuzzlePiece req.body : " + util.inspect(req.body, false, null)));
+  console.log("TEST NULL ", req.body.is_available);
 
   // this needs to be fixed to test for null and undefined and null or something like that
 
-  if (!req.body.puzzle_piece_id === null)         { helpers.sendJsonResponse(res, 400, {"message": "updatePuzzlePiece(): puzzle_piece_id param not passed"}); return;};
-  if (req.body.is_available  === null)            { helpers.sendJsonResponse(res, 400, {"message": "updatePuzzlePiece(): is_available param not passed"}); return;};
-  if (!req.body.employer_and_occupation === null) { helpers.sendJsonResponse(res, 400, {"message": "updatePuzzlePiece(): employer_and_occupation param not passed"}); return;};
-  if (!req.body.paypal_payment_id === null)       { helpers.sendJsonResponse(res, 400, {"message": "updatePuzzlePiece(): paypal_payment_id param not passed"}); return;};
-  if (!req.body.first_name === null)              { helpers.sendJsonResponse(res, 400, {"message": "updatePuzzlePiece(): first_name param not passed"}); return;};
-  if (!req.body.last_name === null)               { helpers.sendJsonResponse(res, 400, {"message": "updatePuzzlePiece(): last_name param not passed"}); return;};
-  if (!req.body.comments === null)                { helpers.sendJsonResponse(res, 400, {"message": "updatePuzzlePiece(): comments param not passed"}); return;};
+  if (! checkReqBody(req, res, 'puzzle_piece_id')) { return; };
+  if (! checkReqBody(req, res, 'is_available')) { return; };
+  if (! checkReqBody(req, res, 'employer_and_occupation')) { return; };
+  if (! checkReqBody(req, res, 'paypal_payment_id')) { return; };
+  if (! checkReqBody(req, res, 'first_name')) { return; };
+  if (! checkReqBody(req, res, 'last_name')) { return; };
+  if (! checkReqBody(req, res, 'comments')) { return; };
 
   let procArgs = [
     checkForNull( req.body.puzzle_piece_id ),
