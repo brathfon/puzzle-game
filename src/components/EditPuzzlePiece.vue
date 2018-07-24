@@ -34,10 +34,12 @@
         <label>Employer and Occupation (Required)</label>
         <input v-model="puzzlePiece.employer_and_occupation" type="text" class="form-control" placeholder="Employer and Occupation (required)">
       </div>
+
       <div class="form-group">
         <label>First Name</label>
         <input v-model="puzzlePiece.first_name" type="text" class="form-control" placeholder="First Name">
       </div>
+
       <div class="form-group">
         <label>Last Name</label>
         <input v-model="puzzlePiece.last_name" type="text" class="form-control" placeholder="Last Name">
@@ -47,6 +49,11 @@
         <label>PayPal Payment ID</label>
         <input v-model="puzzlePiece.paypal_payment_id" type="text" class="form-control" aria-describedby="paypalNote" placeholder="PayPal Payment ID">
         <small id="paypalNote" class="form-text text-muted">Usually filled in automatically after PayPal payment</small>
+      </div>
+
+      <div class="form-group">
+        <label>Comments</label>
+        <input v-model="puzzlePiece.comments" type="text" class="form-control" placeholder="Comments">
       </div>
 
       <button v-if="!isUpdating" class="btn btn-primary">Update</button>

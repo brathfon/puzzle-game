@@ -1,3 +1,50 @@
+.puzzle-piece {
+  height: 128px;
+  width: 128px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  font-weight: bold;
+  font-size: large;
+}
+
+.puzzle-piece-taken-0 {
+  background-image: url("/public/images/puzzle-pieces/gray-0.png");
+}
+
+.puzzle-piece-taken-1 {
+  background-image: url("/public/images/puzzle-pieces/gray-1.png");
+}
+
+.puzzle-piece-taken-2 {
+  background-image: url("/public/images/puzzle-pieces/gray-2.png");
+}
+
+.puzzle-piece-taken-3 {
+  background-image: url("/public/images/puzzle-pieces/gray-3.png");
+}
+
+.puzzle-piece-available-0 {
+  background-image: url("/public/images/puzzle-pieces/green-0.png");
+}
+
+.puzzle-piece-available-1 {
+  background-image: url("/public/images/puzzle-pieces/green-1.png");
+}
+
+.puzzle-piece-available-2 {
+  background-image: url("/public/images/puzzle-pieces/green-2.png");
+}
+
+.puzzle-piece-available-3 {
+  background-image: url("/public/images/puzzle-pieces/green-3.png");
+}
+
+
+table.table-cell-hover td:hover {
+background-color: #dbdbdb;
+}
+
 .turbidity-calibration-range {font-weight: bold;}
 
 

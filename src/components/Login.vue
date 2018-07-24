@@ -162,8 +162,8 @@
               //console.log("TEST GETTER 1 : ", this.$store.getters['auth/hasRole']("ADM"));  // leave as example
               this.$store.commit('auth/updateIsLoggedIn', true); // finally set the overall status that there is some logged in.
               logging.sendSimpleLogMessage.call(this, payload.firstName + " " + payload.lastName + " logged in successfully", "success");
-              //this.$router.push('/confirmYourPick');  // redirect to the first page
-              this.$router.push('/adminOverview');  // redirect to the first page
+              this.$router.push('/selectYourPiece');  // redirect to the first page
+              //this.$router.push('/adminOverview');  // redirect to the first page
             }
             else {
               this.resetStoreValues();

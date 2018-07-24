@@ -2,18 +2,28 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-12">
-        <h3>For Iruri</h3>
+        <h1>We Are all a Piece of the Puzzle</h1>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12">
+        <h3>Help support Tamara by sponsoring a piece of the puzzle</h3>
       </div>
     </div>
 
     <div class="row">
       <div class="col-md-12">
-        <PayPal
-          amount="10.00"
-          currency="USD"
-          :client="credentials"
-          env="sandbox">
-        </PayPal>
+        <form v-on:submit.prevent="makePayment">
+
+          <div class="form-group">
+            <label>Employer and Occupation (Required)</label>
+            <input v-model="puzzlePiece.employer_and_occupation" type="text" class="form-control" placeholder="Employer and Occupation (required)">
+          </div>
+
+          <button class="btn btn-primary">Sponsor the ${{puzzlePiece.price}} Piece</button>
+        </form>
+
       </div>
     </div>
   </div>
@@ -21,48 +31,35 @@
 
 <script>
 var errorMsgs = require('../util/errorMessages');
-import PayPal from 'vue-paypal-checkout';
 
 export default {
   data() {
     return {
-      credentials: {
-        sandbox: 'AQAjpL_QO1SFdti6tx7S6ajcIitqQjZiAhpJhRIQNxQ5xgB19-0p8KORtFWL0jel_QgdFUJnrmTZdxBS',
-        production: 'prod-credentials-do-no-know-yet'
-      }
+      puzzlePiece: null
     }
   },
   components: {
-    PayPal
   },
   computed: {
   },
   methods: {
 
-    getExampleData: function() {
+    // this field must be filled in.  Do not go to the payment field without it filled in
+    verifyEmployerAndOccupation: function() {
+      console.log("THIS WOULD BE VERIFICATION OF EMPLOYER");
+    },
 
-      console.log("LOADING EXAMPLE DATA");
-      var msg = {
-        method: 'get',
-        url: '/api/getExampleData',
-        data: {}
-      }
+    makePayment: function() {
+      console.log("THIS WOULD BE MAKING THE PAYMENT");
+      var params = {};
+      params["puzzle_piece"] = this.puzzlePiece;
 
-      this.$http(msg)
-        .then((response) => {
-          if (response.data.exampleData ){
-            this.exampleData = response.data.exampleData;
-          }
-        })
-        .catch((error) => {
-          errorMsgs.handleHttpErrors.call(this, error);
-        });
+      this.$router.push({name: 'makePayment', params: params});
     }
-
 
   },  // end of methods
   created() {
-    this.getExampleData();
+    this.puzzlePiece = this.$route.params.puzzle_piece;
   }
 }
 </script>
