@@ -86,6 +86,15 @@ export default {
       else {
         this.$router.push({name: 'selectYourPiece'})
       }
+    },
+
+    goBack: function() {
+      console.log("IN GOBACK");
+      return;
+      var params = {};
+      params["puzzle_piece"] = this.puzzlePiece;
+
+      this.$router.push({name: 'confirmYourPick', params: params});
     }
 
   },  // end of methods
@@ -96,6 +105,12 @@ export default {
     this.puzzlePiece = this.$route.params.puzzle_piece;
     this.amount = this.puzzlePiece.price + ".00";
     this.invoice = "PUZZLE_ID_" + this.puzzlePiece.puzzle_piece_id + "_AMT_" + this.puzzlePiece.price;
+
+    document.addEventListener("backbutton", this.goBack, false);
+  },
+
+  beforeDestroy () {
+    document.removeEventListener("backbutton", this.goBack);
   }
 }
 </script>
