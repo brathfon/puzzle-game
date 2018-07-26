@@ -1,21 +1,13 @@
 <template>
-  <div class="navbar navbar-inverse navbar-fixed-top">
+  <div class="navbar navbar-inverse navbar-fixed-top puzzle-banner">
    <div class="container">
      <div class="navbar-header">
-       <a href="/" class="navbar-brand">Tamara Paltin</a>
+       <a href="/" class="navbar-brand puzzle-banner-text " >Tamara Paltin</a>
      </div>
      <div id="navbar-main" class="navbar-collapse collapse">
-       <ul class="nav navbar-nav">
-         <li v-if="showSessions">
-           <a href="/#/labSessionsOverview/">Sessions</a>
-         </li>
-       </ul>
        <ul class="nav navbar-nav navbar-right">
          <li v-if="showLogout">
-           <a href="/#" v-on:click="logout"">Logout {{userFullName}}</a>
-         </li>
-         <li v-if="!showLogout"">
-           <a href="/#/login">Login</a>
+           <a href="/#" class="puzzle-banner-text" v-on:click="logout">Logout {{userFullName}}</a>
          </li>
        </ul>
      </div>
@@ -26,7 +18,6 @@
 <script>
   export default {
     computed: {
-      showSessions() { return this.$store.state.auth.isLoggedIn; },
       showLogout() { return this.$store.state.auth.isLoggedIn; },
       userFullName() {
         return this.$store.state.auth.firstName + " " + this.$store.state.auth.lastName;
@@ -35,7 +26,9 @@
     methods: {
       logout: function() {
         this.$store.dispatch('auth/resetAuth');
-        this.$router.push('/#');  // redirect to the landing page
+        // unset the token to axios to make sure no unauthorized things happen
+        this.$http.defaults.headers.common['Authorization'] = '';
+        this.$router.push({name: "login"});  // redirect to the landing page
       }
     }
   }

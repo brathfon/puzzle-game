@@ -1,8 +1,9 @@
 <template>
-  <div class="container">
+  <div v-if="isLoggedIn()" class="container">
+
     <div class="row">
       <div class="col-lg-12">
-        <h3>Puzzle Pieces</h3>
+        <h3>Puzzle Pieces Status</h3>
       </div>
     </div>
 
@@ -46,6 +47,15 @@
       </div>
     </div>
   </div>
+
+  <div v-else class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <h1>ACCESS DENIED</h1>
+      </div>
+    </div>
+  </div>
+
 </template>
 
 <script>
@@ -61,6 +71,8 @@ export default {
   computed: {
   },
   methods: {
+
+    isLoggedIn() { return this.$store.state.auth.isLoggedIn; },
 
     availableOrTaken: (status) => status ? "Available" : "Taken",
 

@@ -12,18 +12,22 @@ module.exports = {
       log_date_format : 'YYYY-MM-DD HH:mm:ss',
       env: {
         NODE_ENV: 'development',
-        PORT: '3010'
+        PORT: '3013'
       },
       env_production : {
         NODE_ENV: 'production',
-        PORT: '3010' ,
+        PORT: '3013' ,
         DB_HOST: 'localhost',
         DB_USER: 'user',
         DB_USER_PASSWORD: 'pw',
         DB_DATABASE: 'something',
         DB_POOL_SIZE: 50,
         JWT_SECRET: '',
-        WEB_MASTER_EMAIL: 'someone@gmail.com'
+        WEB_MASTER_EMAIL: 'someone@gmail.com',
+        PAYPAL_SANDBOX_CREDENTIALS: 'AQAjpL_QO1SFdti6tx7S6ajcIitqQjZiAhpJhRIQNxQ5xgB19-0p8KORtFWL0jel_QgdFUJnrmTZdxBS',
+        PAYPAL_PRODUCTION_CREDENTIALS: 'unknown_at_this_time',
+        PAYPAL_ENV: 'sandbox',
+        SIMULATE_PAYPAL_SANDBOX: 'no'
       }
     },
   ],

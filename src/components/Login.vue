@@ -133,6 +133,11 @@
             this.createUserFriendlyMessage();
             this.password = "";
             if (response.data.loginSuccessful && this.token) {   // the login was successful
+
+              // set the token to axios to let it make authorized calls
+              this.$http.defaults.headers.common['Authorization'] = 'Bearer ' + this.token;
+
+              // now parse the payload
               let payload = JSON.parse(atob(this.token.split('.')[1]));
               this.$store.commit('auth/updateUserID',  payload.userID);
               this.$store.commit('auth/updateFirstName', payload.firstName);
@@ -162,8 +167,7 @@
               //console.log("TEST GETTER 1 : ", this.$store.getters['auth/hasRole']("ADM"));  // leave as example
               this.$store.commit('auth/updateIsLoggedIn', true); // finally set the overall status that there is some logged in.
               logging.sendSimpleLogMessage.call(this, payload.firstName + " " + payload.lastName + " logged in successfully", "success");
-              this.$router.push('/selectYourPiece');  // redirect to the first page
-              //this.$router.push('/adminOverview');  // redirect to the first page
+              this.$router.push('/adminOverview');  // redirect to the first page
             }
             else {
               this.resetStoreValues();

@@ -112,7 +112,54 @@ module.exports.updatePuzzlePiece = function (req, res) {
     data['errors'] = [];
 
     if (err) {
-      helpers.sendJsonSQLErrorResponse("Error retrieving puzzle piece " + puzzle_piece_id + " from database",
+      helpers.sendJsonSQLErrorResponse("Error updating puzzle piece " + req.body.puzzle_piece_id + " from database",
+                            "danger",
+                            err,
+                            data,
+                            res);
+    } else {
+      data['puzzlePiece'] =  rows[0];
+      helpers.sendJsonResponse(res, 201, data);
+    }
+  });
+};
+
+
+module.exports.buyPuzzlePiece = function (req, res) {
+
+  console.log(chalk.green("updatePuzzlePiece req.body : " + util.inspect(req.body, false, null)));
+  //console.log("TEST NULL ", req.body.is_available);
+
+  // this needs to be fixed to test for null and undefined and null or something like that
+
+  if (! checkReqBody(req, res, 'puzzle_piece_id')) { return; };
+  if (! checkReqBody(req, res, 'employer_and_occupation')) { return; };
+  if (! checkReqBody(req, res, 'paypal_payment_id')) { return; };
+  if (! checkReqBody(req, res, 'first_name')) { return; };
+  if (! checkReqBody(req, res, 'last_name')) { return; };
+
+  let procArgs = [
+    checkForNull( req.body.puzzle_piece_id ),
+    checkForNull( req.body.employer_and_occupation ),
+    checkForNull( req.body.paypal_payment_id ),
+    checkForNull( req.body.first_name ),
+    checkForNull( req.body.last_name )
+  ];
+
+
+  db.pool.query("call buy_puzzle_piece(?,?,?,?,?)", procArgs, function(err, rows, fields) {
+
+
+  //console.log(chalk.green("err : " + util.inspect(err, false, null)));
+  //console.log(chalk.green("rows : " + util.inspect(rows, false, null)));
+  //console.log(chalk.green("fields : " + util.inspect(fields, false, null)));
+
+    var data = {};
+    data['puzzlePiece'] = [];
+    data['errors'] = [];
+
+    if (err) {
+      helpers.sendJsonSQLErrorResponse("Error buying puzzle piece " + req.body.puzzle_piece_id + " from database",
                             "danger",
                             err,
                             data,

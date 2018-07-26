@@ -8,6 +8,21 @@
   font-size: large;
 }
 
+.puzzle-banner {
+  border-bottom-color: #ED1E27;
+  background-color: #ED1E27;
+  background-image: linear-gradient(#ED1E27, #ED1E27, #ED1E27);
+  color: #F8EF20 !important;
+  text-decoration-color: #F8EF20 !important;
+}
+
+// get that Tamara color in there on the text.  Currently not working to override
+.puzzle-banner-text {
+  color: #F8EF20 !important;
+  text-decoration-color: #F8EF20 !important;
+}
+
+
 .puzzle-piece-taken-0 {
   background-image: url("/public/images/puzzle-pieces/gray-0.png");
 }

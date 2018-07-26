@@ -1,16 +1,12 @@
 <template>
   <div class="container">
-    <div class="row">
-      <div class="col-lg-12">
-        <h1>We Are all a Piece of the Puzzle</h1>
-      </div>
-    </div>
 
     <div class="row">
       <div class="col-lg-12">
-        <h3>Help support Tamara by sponsoring a piece of the puzzle</h3>
+        <h1>We are all a piece of the puzzle.</h1>
       </div>
     </div>
+
 
     <div class="row">
       <div class="col-md-12">
@@ -18,11 +14,11 @@
 
           <div class="form-group" v-bind:class="jobInfoWarningClass()">
             <label class="control-label">Employer and Occupation (Required)</label>
-            <input v-model="puzzlePiece.employer_and_occupation" type="text" class="form-control" placeholder="Employer and Occupation">
+            <input v-model="employer_and_occupation" type="text" class="form-control" placeholder="Employer and Occupation">
             <div v-if="jobInfoBlankUponSubmission()" class="text-danger">You must include your Employer and Occupation</div>
           </div>
 
-          <button class="btn btn-primary">Sponsor the ${{puzzlePiece.price}} Piece</button>
+          <button class="btn btn-primary">Sponsor the ${{price}} Piece</button>
         </form>
 
       </div>
@@ -36,7 +32,9 @@ var errorMsgs = require('../util/errorMessages');
 export default {
   data() {
     return {
-      puzzlePiece: null,
+      puzzle_piece_id: null,
+      price: null,
+      employer_and_occupation: "",
       jobInfoFilledOut: "NOT_YET",
     }
   },
@@ -55,21 +53,19 @@ export default {
       return this.jobInfoFilledOut === "NO" ? "has-error" : "";
     },
 
-    // this field must be filled in.  Do not go to the payment field without it filled in
-    verifyEmployerAndOccupation: function() {
-      console.log("THIS WOULD BE VERIFICATION OF EMPLOYER");
-    },
-
     makePayment: function() {
       console.log("THIS WOULD BE MAKING THE PAYMENT");
-      if (this.puzzlePiece.employer_and_occupation === null ||
-          this.puzzlePiece.employer_and_occupation === "") {
+      if (this.employer_and_occupation === null ||
+          this.employer_and_occupation === "") {
           this.jobInfoFilledOut = "NO";
       }
       else {
         this.jobInfoFilledOut = "YES";
         var params = {};
-        params["puzzle_piece"] = this.puzzlePiece;
+        params["puzzle_piece_id"] = this.puzzle_piece_id;
+        params["price"] = this.price;
+        params["employer_and_occupation"] = this.employer_and_occupation;
+
 
         this.$router.push({name: 'makePayment', params: params});
       }
@@ -77,7 +73,8 @@ export default {
 
   },  // end of methods
   created() {
-    this.puzzlePiece = this.$route.params.puzzle_piece;
+    this.puzzle_piece_id = this.$route.params.puzzle_piece_id;
+    this.price = this.$route.params.price;
   }
 }
 </script>

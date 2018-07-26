@@ -79,7 +79,11 @@ if (process.env.NODE_ENV === 'development') {
     new webpack.NoEmitOnErrorsPlugin(),
     new webpack.DefinePlugin({
       'process.env': {
-        NODE_ENV: '"development"'
+        NODE_ENV: '"development"',
+        SIMULATE_PAYPAL_SANDBOX: JSON.stringify(process.env.SIMULATE_PAYPAL_SANDBOX || 'yes'),
+        PAYPAL_SANDBOX_CREDENTIALS: JSON.stringify(process.env.PAYPAL_SANDBOX_CREDENTIALS || 'UNSET'),
+        PAYPAL_PRODUCTION_CREDENTIALS: JSON.stringify(process.env.PAYPAL_PRODUCTION_CREDENTIALS || 'UNSET'),
+        PAYPAL_ENV: JSON.stringify(process.env.PAYPAL_ENV|| 'UNSET')
       }
     }),
   ];
@@ -106,8 +110,11 @@ if (process.env.NODE_ENV === 'production') {
   module.exports.plugins = (module.exports.plugins || []).concat([
     new VueLoaderPlugin(),
     new webpack.DefinePlugin({
-      'process.env': {
-        NODE_ENV: '"production"'
+      'process.env': {               // note: all these are just hard-coded into the build, so must be correct at build time
+        NODE_ENV: '"production"',  
+        PAYPAL_SANDBOX_CREDENTIALS: JSON.stringify(process.env.PAYPAL_SANDBOX_CREDENTIALS || 'UNSET'),
+        PAYPAL_PRODUCTION_CREDENTIALS: JSON.stringify(process.env.PAYPAL_PRODUCTION_CREDENTIALS || 'UNSET'),
+        PAYPAL_ENV: JSON.stringify(process.env.PAYPAL_ENV|| 'UNSET')
       }
     }),
     new webpack.LoaderOptionsPlugin({

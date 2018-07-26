@@ -1,8 +1,27 @@
 <template>
   <div class="container">
+
     <div class="row">
       <div class="col-lg-12">
-        <h1>We Are all a Piece of the Puzzle</h1>
+        <h1>We are all a piece of the puzzle.</h1>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12">
+        <h3>Help contribute to Tamara'a campaign by sponsoring a piece of the puzzle.</h3>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12">
+        <h3>Make a difference by selecting the amount below that you would like to donate.</h3>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12">
+        <h3>Green are available. Gray are taken.</h3>
       </div>
     </div>
 

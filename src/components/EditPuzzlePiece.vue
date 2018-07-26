@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div v-if="isLoggedIn()" class="container">
     <div class="row">
       <div class="col-lg-12">
         <h3>Edit Puzzle Piece ID of {{puzzle_piece_id}}, ${{puzzlePiece.price}}</h3>
@@ -62,6 +62,14 @@
     </form>
 
   </div>
+
+  <div v-else class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <h1>ACCESS DENIED</h1>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -83,6 +91,8 @@ export default {
 
   },
   methods: {
+
+    isLoggedIn() { return this.$store.state.auth.isLoggedIn; },
 
     goToEditPuzzlePiece: function (puzzlePiece){
       var params = {};
