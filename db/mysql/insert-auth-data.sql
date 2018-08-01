@@ -3,8 +3,8 @@
 -- email will be used as the login
 INSERT INTO users (first_name, last_name, initials, email, phone_number, salt, hash) values  -- root_pw #1
    ('Puzzle', 'Admin', '99', 'admin', null,
-    '7e58de529f6d552bff5d63f5af98678a',
-    '0aaf2ada1d66e2eea03ae076648f9b890e219f21cb5069af3bd19ae98ea9b1e3d46b2be8e5c572a5c09836ce014aa6000ac3161477cdf111ebba443bc0a63c72');
+    '6eae0dbfd1fcca875fc388be782e7ed2',
+    'fa78abb6bbaf650e18b748cdd40ac217eb4d91185c2b1409f13ffb8ebb1fb982e107ff2f1f66f3ba062406f0dd14ca2fcfe43b3335c73155247723411998397a');
 
 -- Roles information
 INSERT INTO roles (abrv, long_name) VALUES ( 'ADM', 'Administration');
