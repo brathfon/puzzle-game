@@ -56,9 +56,30 @@
 }
 
 
+.confirm-selection {
+    text-align: center;
+}
+
+.paypal-button {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  text-align: center;
+}
+
+.paypal-simu-button {
+  text-align: center;
+}
+.employer-and-occupation-box {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  text-align: center;
+}
+
 table.table-cell-hover td:hover {
 background-color: #dbdbdb;
 }
+
+
 
 .turbidity-calibration-range {font-weight: bold;}
 

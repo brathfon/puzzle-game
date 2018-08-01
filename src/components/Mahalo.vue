@@ -2,13 +2,13 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-12">
-        <h1>We Are all a Piece of the Puzzle</h1>
+        <h1 class="text-center">We are all a piece of the puzzle.</h1>
       </div>
     </div>
 
     <div class="row">
       <div class="col-lg-12">
-        <h1>Thank You for your Generous Support</h1>
+        <h1 class="text-center">Mahalo nui for your generous support!</h1>
       </div>
     </div>
 

@@ -11,3 +11,4 @@ errs
 env
 temp
 npm-debug.log
+.createDatabase.sql

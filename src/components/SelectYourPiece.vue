@@ -3,25 +3,25 @@
 
     <div class="row">
       <div class="col-lg-12">
-        <h1>We are all a piece of the puzzle.</h1>
+        <h1 class='text-center'>We are all a piece of the puzzle.</h1>
       </div>
     </div>
 
     <div class="row">
       <div class="col-lg-12">
-        <h3>Help contribute to Tamara'a campaign by sponsoring a piece of the puzzle.</h3>
+        <h3 class='text-center'>Help contribute to Tamara'a campaign by sponsoring a piece of the puzzle.</h3>
       </div>
     </div>
 
     <div class="row">
       <div class="col-lg-12">
-        <h3>Make a difference by selecting the amount below that you would like to donate.</h3>
+        <h3 class='text-center'>Make a difference by selecting the amount below that you would like to donate.</h3>
       </div>
     </div>
 
     <div class="row">
-      <div class="col-lg-12">
-        <h3>Green are available. Gray are taken.</h3>
+      <div class="col-lg-offset-3 col-lg-6">
+        <h3 class='text-center'>Green are available. Gray are taken.</h3>
       </div>
     </div>
 

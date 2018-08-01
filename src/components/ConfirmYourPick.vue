@@ -3,13 +3,19 @@
 
     <div class="row">
       <div class="col-lg-12">
-        <h1>We are all a piece of the puzzle.</h1>
+        <h1 class="text-center">We are all a piece of the puzzle.</h1>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12">
+        <h3 class="text-center">Help support Tamara by sponsoring a piece of the puzzle.</h3>
       </div>
     </div>
 
 
     <div class="row">
-      <div class="col-md-12">
+      <div class="col-md-offset-3 col-md-6  employer-and-occupation-box">
         <form v-on:submit.prevent="makePayment">
 
           <div class="form-group" v-bind:class="jobInfoWarningClass()">
@@ -17,12 +23,20 @@
             <input v-model="employer_and_occupation" type="text" class="form-control" placeholder="Employer and Occupation">
             <div v-if="jobInfoBlankUponSubmission()" class="text-danger">You must include your Employer and Occupation</div>
           </div>
-
-          <button class="btn btn-primary">Sponsor the ${{price}} Piece</button>
+          <div class="confirm-selection">
+            <button class="btn btn-primary">Sponsor the ${{price}} Piece</button>
+        </div>
         </form>
 
       </div>
     </div>
+
+    <div class="row">
+      <div class="col-lg-12">
+        <h4 class="text-center">If you would like to sponsor the piece by cash or check, contact Tamara at: Tamara@TamaraPaltin.com</h4>
+      </div>
+    </div>
+
   </div>
 </template>
 

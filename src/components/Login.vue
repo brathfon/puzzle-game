@@ -13,7 +13,7 @@
         <div class="col-md-offset-4 col-md-4">
           <div class="form-login">
               <h4 class="login-header">Welcome Back</h4>
-              <input v-model="email" type="text" name="email" placeholder="email" class="form-control input-sm chat-input"><br>
+              <input v-model="email" type="text" name="email" placeholder="login" class="form-control input-sm chat-input"><br>
               <input v-model="password" type="text" name="password" placeholder="password" class="form-control input-sm chat-input"><br>
               <div class="login-wrapper">
                 <span class="group-btn">

@@ -9,12 +9,12 @@
 
     <div class="row">
       <div class="col-lg-12">
-        <h3>We are All a Piece of the Puzzle</h3>
+        <h1 class="text-center">We are all a piece of the puzzle.</h1>
       </div>
     </div>
 
     <div class="row">
-      <div class="col-md-12">
+      <div class="col-lg-offset-5 col-lg-2 paypal-button">
         <PayPal
           :amount="amount"
           currency="USD"
@@ -29,7 +29,7 @@
     </div>
 
     <div v-if="showPayPalSimulator()" class="row">
-      <div class="col-md-12">
+      <div class="col-lg-offset-5 col-lg-2 col-md-offset-5 col-md-2 paypal-simu-button">
         <PayPalSimulator
           v-on:payment-cancelled="paymentCancelled"
           v-on:payment-authorized="paymentAuthorized"
