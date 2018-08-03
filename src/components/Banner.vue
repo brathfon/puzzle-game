@@ -2,13 +2,11 @@
   <div class="navbar navbar-inverse navbar-fixed-top puzzle-banner">
    <div class="container">
      <div class="navbar-header">
-       <a href="/" class="navbar-brand puzzle-banner-text " >Tamara Paltin</a>
+       <a href="/" class="navbar-brand" >TAMARA PALTIN</a>
      </div>
      <div id="navbar-main" class="navbar-collapse collapse">
        <ul class="nav navbar-nav navbar-right">
-         <li v-if="showLogout">
-           <a href="/#" class="puzzle-banner-text" v-on:click="logout">Logout {{userFullName}}</a>
-         </li>
+         <li><img class="iwa-banner" src="public/images/iwa-banner.png"></li>
        </ul>
      </div>
    </div>
@@ -18,18 +16,8 @@
 <script>
   export default {
     computed: {
-      showLogout() { return this.$store.state.auth.isLoggedIn; },
-      userFullName() {
-        return this.$store.state.auth.firstName + " " + this.$store.state.auth.lastName;
-      }
     },
     methods: {
-      logout: function() {
-        this.$store.dispatch('auth/resetAuth');
-        // unset the token to axios to make sure no unauthorized things happen
-        this.$http.defaults.headers.common['Authorization'] = '';
-        this.$router.push({name: "login"});  // redirect to the landing page
-      }
     }
   }
 </script>

@@ -14,6 +14,12 @@
     </div>
 
     <div class="row">
+      <div class="col-lg-12">
+        <h4 class="text-center">Use the PayPal button below to use your PayPal account or credit card to donate.</h4>
+      </div>
+    </div>
+
+    <div class="row">
       <div class="col-lg-offset-5 col-lg-2 paypal-button">
         <PayPal
           :amount="amount"
@@ -87,8 +93,6 @@ export default {
 
     buyPuzzlePiece: function(){
 
-      console.log("Buying the puzzle piece now");
-
       var params = {};
       params["puzzle_piece_id"] = this.puzzle_piece_id;
       params["employer_and_occupation"] = this.employer_and_occupation;
@@ -112,16 +116,16 @@ export default {
 
 
     paymentCancelled: function(payload) {
-      console.log("Payment was cancelled. Payload: ", payload);
+      //console.log("Payment was cancelled. Payload: ", payload);
     },
 
     paymentAuthorized: function(payload) {
-      console.log("Payment was authorized. Payload: ", payload);
+      //console.log("Payment was authorized. Payload: ", payload);
       this.isAuthorized = true;
     },
 
     paymentCompleted: function(payload) {
-      console.log("Payment was completed. Payload: ", payload);
+      //console.log("Payment was completed. Payload: ", payload);
       this.isCompleted = true;
       this.paypal_payment_id = payload.transactions[0].related_resources[0].sale.id;
       this.first_name = payload.payer.payer_info.first_name;
@@ -162,8 +166,12 @@ export default {
 
   },  // end of methods
   created() {
-    console.log("VUE : ", this);
-    console.log("process : ", process.env);
+    // log enough to be able to tell if all things are set correctly
+    console.log("NODE_ENV : ", process.env.NODE_ENV);
+    console.log("PAYPAL_SANDBOX_CREDENTIALS : ", process.env.PAYPAL_SANDBOX_CREDENTIALS.substring(0,4), "....");
+    console.log("PAYPAL_PRODUCTION_CREDENTIALS : ", process.env.PAYPAL_PRODUCTION_CREDENTIALS.substring(0,4), "....");
+    console.log("SIMULATE_PAYPAL_SANDBOX : ", process.env.SIMULATE_PAYPAL_SANDBOX);
+
     // params past in
     this.puzzle_piece_id = this.$route.params.puzzle_piece_id;
     this.price = this.$route.params.price;

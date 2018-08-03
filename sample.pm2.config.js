@@ -16,7 +16,7 @@ module.exports = {
       },
       env_production : {
         NODE_ENV: 'production',
-        PORT: '3013' ,
+        PORT: '3013',
         DB_HOST: 'localhost',
         DB_USER: 'user',
         DB_USER_PASSWORD: 'pw',
@@ -25,8 +25,8 @@ module.exports = {
         JWT_SECRET: '',
         WEB_MASTER_EMAIL: 'someone@gmail.com',
         PAYPAL_SANDBOX_CREDENTIALS: 'AQAjpL_QO1SFdti6tx7S6ajcIitqQjZiAhpJhRIQNxQ5xgB19-0p8KORtFWL0jel_QgdFUJnrmTZdxBS',
-        PAYPAL_PRODUCTION_CREDENTIALS: 'unknown_at_this_time',
-        PAYPAL_ENV: 'sandbox',
+        PAYPAL_PRODUCTION_CREDENTIALS: 'AcVFalzIkIwt2dRZJeSXZNDXyvgZQhju5GQ4333qcX9pGPvuxcG3osPQ2hx3gBpWhilI2t6_a7pn53M_',
+        PAYPAL_ENV: 'development',
         SIMULATE_PAYPAL_SANDBOX: 'no'
       }
     },

@@ -10,7 +10,7 @@ import ErrorAlert from './ErrorAlert.vue';
 export default {
   methods: {
     resetError : function(index) {
-      console.log("ErrorAlerts:resetError: " + index);
+      //console.log("ErrorAlerts:resetError: " + index);
       this.$emit('reset-error', index);
     },
 

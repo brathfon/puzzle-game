@@ -7,14 +7,15 @@
     </div>
 
     <div class="row">
-      <div class="col-md-12">
+      <div class="col-md-12 reset-all-fields-button">
+        <button v-on:click="resetAll()" class="btn btn-default">Reset All Fields and Make Available</button>
       </div>
     </div>
 
     <form v-on:submit.prevent="doUpdate">
 
       <fieldset class="form-group">
-        <legend>Status</legend>
+        <legend>Current Status</legend>
         <div class="form-check">
           <label class="form-check-label">
             <input type="radio" v-model="puzzlePiece.is_available" value="1" class="form-check-input" name="statusRadios" id="statusRadio1">
@@ -61,6 +62,12 @@
 
     </form>
 
+    <div class="row">
+      <div class="col-md-12">
+        <h5>Note: No changes are saved to the database unless Update button used.</h5>
+      </div>
+    </div>
+
   </div>
 
   <div v-else class="container">
@@ -92,7 +99,17 @@ export default {
   },
   methods: {
 
-    isLoggedIn() { return this.$store.state.auth.isLoggedIn; },
+    isLoggedIn: function() { return this.$store.state.auth.isLoggedIn; },
+
+    resetAll: function() {
+      //console.log("RESET ALL");
+      this.puzzlePiece.comments = null;
+      this.puzzlePiece.employer_and_occupation = null;
+      this.puzzlePiece.first_name = null;
+      this.puzzlePiece.last_name = null;
+      this.puzzlePiece.is_available = 1;
+      this.puzzlePiece.paypal_payment_id = null;
+    },
 
     goToEditPuzzlePiece: function (puzzlePiece){
       var params = {};
@@ -105,11 +122,14 @@ export default {
           return new Promise(resolve => setTimeout(resolve, ms));
         },
 
-    updateComplete : function() {
+    updateComplete : function(noErrors) {
       //this.getSamplesForSession();  // reload from database
       this.sleep(1000).then(() => {
         this.updating = false;
         console.log("UPDATE COMPLETE");
+        if (noErrors) {
+          this.$router.push('/adminOverview');  // redirect to the first page
+        }
       });
     },
 
@@ -118,28 +138,19 @@ export default {
       this.$http.put('/api/updatePuzzlePiece/', this.puzzlePiece)
         .then((response) => {
           //console.log("INITIAL response ->  for " + index, response);
-            this.updateComplete();
+            this.updateComplete(true);
+            //this.$router.push('/adminOverview');  // redirect to the first page
         })
         .catch((error) => {
           //console.log("ERROR updating -> ", this.samples[index].long_name);
           errorMsgs.handleHttpErrors.call(this, error);
-          this.updateComplete();
+          this.updateComplete(false);
         });
       },
 
     doUpdate: function() {
       var i;
 
-      //e.preventDefault();
-      console.log("DO UPDATE");
-
-      //this.resetErrors();  // don't want to see old errors
-      //this.initializeAlerts();
-
-    //  if ( ! this.validateSamples()) {
-  //      console.log("UPDATE CANCELLED");
-  //      return;
-  //    }
       this.updating = true;
 
       this.updatePuzzlePiece();
@@ -147,7 +158,7 @@ export default {
 
     getPuzzlePiece: function() {
 
-      console.log("Editing Puzzle Piece");
+      //console.log("Editing Puzzle Piece");
       var msg = {
         method: 'get',
         url: '/api/getPuzzlePiece/' + this.puzzle_piece_id,

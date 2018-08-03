@@ -24,9 +24,9 @@ var getLabs = function() {
 
 
 var loadLookupInformation = function() {
-  console.log("Starting loading of lookup information");
+  //console.log("Starting loading of lookup information");
   getLabs.call(this);
-  console.log("Done loading of lookup information");
+  //console.log("Done loading of lookup information");
 };
 
 export {

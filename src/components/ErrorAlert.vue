@@ -26,7 +26,7 @@ export default {
 
   methods: {
     resetError : function() {
-      console.log("ErrorAlerts:resetError");
+      //console.log("ErrorAlerts:resetError");
       this.$emit('reset-error', this.id);
     },
 

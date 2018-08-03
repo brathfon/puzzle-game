@@ -38,6 +38,9 @@ app.use('/public', express.static(path.join(__dirname, 'public')));
 
 app.use('/api', routesApi);
 
+// this is added to help with obtaining the certicates so that
+// curl https://tamarapuzzle.com/public/.well-known/acme-challenge/9001 works
+app.use(express.static('public'));
 
 let template = fs.readFileSync(path.resolve('./index.html'), 'utf-8');
 app.get('/', function(req, res) {

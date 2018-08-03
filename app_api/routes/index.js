@@ -27,7 +27,7 @@ router.post('/createNewUser', ctrlAuth.createNewUser);
 router.get('/getRoles', lookup.getRoles);
 
 // logging
-router.post('/insertLogMessage', logging.insertLogMessage);
+router.post('/insertLogMessage', auth, logging.insertLogMessage);
 
 
 

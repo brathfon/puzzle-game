@@ -68,7 +68,7 @@ export default {
     },
 
     makePayment: function() {
-      console.log("THIS WOULD BE MAKING THE PAYMENT");
+      //console.log("THIS WOULD BE MAKING THE PAYMENT");
       if (this.employer_and_occupation === null ||
           this.employer_and_occupation === "") {
           this.jobInfoFilledOut = "NO";

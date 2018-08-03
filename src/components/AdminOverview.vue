@@ -3,7 +3,13 @@
 
     <div class="row">
       <div class="col-lg-12">
-        <h3>Puzzle Pieces Status</h3>
+        <h3>Puzzle Pieces Administration</h3>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-offset-10 col-lg-2 col-md-offset-10 col-md-2 col-sm-offset-6 col-sm-6">
+        <button v-on:click="logout()" class="btn btn-sm btn-default">Log Out {{userFullName()}}</button>
       </div>
     </div>
 
@@ -19,7 +25,7 @@
               <th class="center-align-table-cell">Employer and Occupation</th>
               <th class="center-align-table-cell">PayPal Payment ID</th>
               <th class="center-align-table-cell">First Name</th>
-              <th class="center-align-table-cell">Past Name</th>
+              <th class="center-align-table-cell">Last Name</th>
               <th class="center-align-table-cell">Comments</th>
               <th class="center-align-table-cell">Edit</th>
             </tr>
@@ -72,7 +78,18 @@ export default {
   },
   methods: {
 
-    isLoggedIn() { return this.$store.state.auth.isLoggedIn; },
+    isLoggedIn: function() { return this.$store.state.auth.isLoggedIn; },
+
+    userFullName: function() {
+      return this.$store.state.auth.firstName + " " + this.$store.state.auth.lastName;
+    },
+
+    logout: function() {
+      this.$store.dispatch('auth/resetAuth');
+      // unset the token to axios to make sure no unauthorized things happen
+      this.$http.defaults.headers.common['Authorization'] = '';
+      this.$router.push({name: "login"});  // redirect to the landing page
+    },
 
     availableOrTaken: (status) => status ? "Available" : "Taken",
 
@@ -86,7 +103,7 @@ export default {
 
     getPuzzlePieces: function() {
 
-      console.log("LOADING Puzzle Pieces");
+      //console.log("LOADING Puzzle Pieces");
       var msg = {
         method: 'get',
         url: '/api/getPuzzlePieces',

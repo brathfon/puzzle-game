@@ -63,11 +63,11 @@
         if ( ((this.email === "")    || (this.email === null)) &&
              ((this.password === "") || (this.password === null)) )
         {
-          this.loginErrors.push(this.createSimpleErrorMsg("You must enter your email and password", "danger"));
+          this.loginErrors.push(this.createSimpleErrorMsg("You must enter your login and password", "danger"));
           return false;
         }
         else if ((this.email === "") || (this.email === null)) {
-          this.loginErrors.push(this.createSimpleErrorMsg("You must enter your email", "danger"));
+          this.loginErrors.push(this.createSimpleErrorMsg("You must enter your login", "danger"));
           return false;
         }
         else if ((this.password === "") || (this.password === null)) {
@@ -85,8 +85,8 @@
         if (!this.loginSuccessful && (this.loginErrors.length === 0)) {
           if (this.token === "NO_MATCHING_EMAIL_FOUND") {
             this.loginErrors = [];
-            this.loginErrors.push(this.createSimpleErrorMsg("Your email, " + this.email + ", was not found.", "danger"));
-            logging.sendSimpleLogMessage.call(this, "Login attempt with unknown email " + this.email, "warning");
+            this.loginErrors.push(this.createSimpleErrorMsg("Your login, " + this.email + ", was not found.", "danger"));
+            logging.sendSimpleLogMessage.call(this, "Login attempt with unknown login " + this.email, "warning");
           }
           else if (this.token === "PASSWORD_DOES_NOT_MATCH") {
             this.loginErrors = [];
@@ -146,8 +146,8 @@
               this.$store.commit('auth/updateRoleIDs',     payload.roles);
 
               // roles
-              console.log("PAYLOAD: ", payload.roles);
-              console.log("LOOKUP ROLES: ", this.$store.state.lookupInfo.roles);
+              //console.log("PAYLOAD: ", payload.roles);
+              //console.log("LOOKUP ROLES: ", this.$store.state.lookupInfo.roles);
 
               let newRoleAbrvs = [];
               let newRoleLongNames = [];

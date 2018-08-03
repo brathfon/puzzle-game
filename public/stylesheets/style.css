@@ -11,17 +11,14 @@
 .puzzle-banner {
   border-bottom-color: #ED1E27;
   background-color: #ED1E27;
-  background-image: linear-gradient(#ED1E27, #ED1E27, #ED1E27);
+  background-image: linear-gradient(#F47178, #ED1E27 50%, #D4111B);
   color: #F8EF20 !important;
   text-decoration-color: #F8EF20 !important;
 }
 
-// get that Tamara color in there on the text.  Currently not working to override
-.puzzle-banner-text {
+.navbar-header a {
   color: #F8EF20 !important;
-  text-decoration-color: #F8EF20 !important;
 }
-
 
 .puzzle-piece-taken-0 {
   background-image: url("/public/images/puzzle-pieces/gray-0.png");
@@ -79,71 +76,22 @@ table.table-cell-hover td:hover {
 background-color: #dbdbdb;
 }
 
+.iwa-banner {
+  padding-top: 5px;
+  padding-right: 100px;
+}
 
-
-.turbidity-calibration-range {font-weight: bold;}
-
-
-.in-situ-header-cell { text-align: center; padding-left: 10px; padding-right: 10px }
-
-.in-situ-table-cell { text-align: center }
+.reset-all-fields-button {
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
 
 .center-align-table-cell { text-align: center }
-
-.in-situ-inner-table { margin: auto }
-
-.in-situ-location-table {
-  margin: auto;
-  text-align:left;
-  margin-left:5px
-}
-
-.user-notes-section {
-  padding-top: 10px;
-}
 
 .location-cell {
   width: 12%;
 }
 
-.date-input {
-  width: 10%;
-}
-
-.even-table-row {
-    background-color: #F9F9F9;
-  }
-
-.wq-container {
-  padding-top: 15px;
-}
-
-.wq-edit-choices {
-  padding-top: 15px;
-}
-
-.wq-input {
-
-  text-align: center;
-  display: block;
-width: 100%;
-height: 34px;
-padding: 6px 12px;
-font-size: 14px;
-line-height: 1.42857143;
-color: #555;
-background-color: #fff;
-background-image: none;
-border: 1px solid #ccc;
-border-radius: 4px;
--webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
-        box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
--webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
-     -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
-        transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
-}
-
-.table-with-border { border: 1px solid black }
 
 .login-container {
     padding: 25px;
@@ -172,11 +120,6 @@ border-radius: 4px;
 
 .login-wrapper {
     text-align: center;
-}
-
-.orig-validation-error {
-    border-color: #cfdc00;
-    box-shadow: 0 0 5px rgba(207, 220, 0, 0.4);
 }
 
 .validation-error {

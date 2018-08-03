@@ -29,7 +29,7 @@ export default {
     },
 
     wasSelected: function() {
-      console.log("Select puzzle piece with id ", this.puzzlePiece.puzzle_piece_id);
+      //console.log("Select puzzle piece with id ", this.puzzlePiece.puzzle_piece_id);
       if (this.puzzlePiece.is_available) {
         var params = {};
         params["puzzle_piece_id"] = this.puzzlePiece.puzzle_piece_id;
