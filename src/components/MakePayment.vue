@@ -168,6 +168,7 @@ export default {
   created() {
     // log enough to be able to tell if all things are set correctly
     console.log("NODE_ENV : ", process.env.NODE_ENV);
+    console.log("PAYPAL_ENV : ", process.env.PAYPAL_ENV);
     console.log("PAYPAL_SANDBOX_CREDENTIALS : ", process.env.PAYPAL_SANDBOX_CREDENTIALS.substring(0,4), "....");
     console.log("PAYPAL_PRODUCTION_CREDENTIALS : ", process.env.PAYPAL_PRODUCTION_CREDENTIALS.substring(0,4), "....");
     console.log("SIMULATE_PAYPAL_SANDBOX : ", process.env.SIMULATE_PAYPAL_SANDBOX);
